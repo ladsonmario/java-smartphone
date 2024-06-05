@@ -1,63 +1,55 @@
 ## UML
 
-```plantuml
-@startuml
-package smartphone {
-    class Smartphone {
-        + main(args: String[])
-    }
-}
+```mermaid
+classDiagram
+    Smartphone --> GoogleChrome
+    Smartphone --> Spotify
+    Smartphone --> GoogleContact
 
-package apps.browser {
+    class Smartphone {
+        +main(args: String[]): void
+    }
+
     class InternetBrowser {
-        + openApp(appName: String)
-        + displayPage(url: String)
-        + openNewTab()
-        + closeApp(appName: String)
-        + getAppName(): String
+        +openApp(appName: String): void
+        +displayPage(url: String): void
+        +openNewTab(): void
+        +closeApp(appName: String): void
+        +getAppName(): String
     }
 
     class GoogleChrome {
     }
-    
-    InternetBrowser <|-- GoogleChrome
-}
 
-package apps.music {
+    InternetBrowser <|-- GoogleChrome
+
     class MusicPlayer {
-        + openApp(appName: String)
-        + selectMusic(music: String)
-        + player()
-        + pause()
-        + stop()
-        + closeApp(appName: String)
-        + getAppName(): String
+        +openApp(appName: String): void
+        +selectMusic(music: String): void
+        +player(): void
+        +pause(): void
+        +stop(): void
+        +closeApp(appName: String): void
+        +getAppName(): String
     }
 
     class Spotify {
     }
-    
-    MusicPlayer <|-- Spotify
-}
 
-package apps.telephone {
+    MusicPlayer <|-- Spotify
+
     class Telephone {
-        + openApp(appName: String)
-        + call(number: String)
-        + startVoicemail()
-        + disconnect()
-        + answer()
-        + closeApp(appName: String)
-        + getAppName(): String
+        +openApp(appName: String): void
+        +call(number: String): void
+        +startVoicemail(): void
+        +disconnect(): void
+        +answer(): void
+        +closeApp(appName: String): void
+        +getAppName(): String
     }
 
     class GoogleContact {
     }
-    
-    Telephone <|-- GoogleContact
-}
 
-Smartphone ..> GoogleChrome
-Smartphone ..> Spotify
-Smartphone ..> GoogleContact
-@enduml
+    Telephone <|-- GoogleContact
+```
